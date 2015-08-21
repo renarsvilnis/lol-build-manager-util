@@ -13,4 +13,8 @@ var mgnUtil = require('lol-build-mgr-util');
 ## Testing
 ```bash
 npm run test
-``
+```
+
+## TODO
+[ ] Tests
+[ ] API documentation
