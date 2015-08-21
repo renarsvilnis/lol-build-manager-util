@@ -1,5 +1,5 @@
 {
-  "name": "lol-build-mgr-util",
+  "name": "lol-build-manager-util",
   "version": "0.0.1",
   "description": "Node module that contains utility functions for all League of Legends build manager programs across the board for isomorphic JavaScript.",
   "main": "index.js",
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/renarsvilnis/lol-build-mgr-util"
+    "url": "https://github.com/renarsvilnis/lol-build-manager-util"
   },
   "keywords": [
-    "lol-build-mgr"
+    "lol-build-manager"
   ],
   "author": "Renārs Vilnis <renars.vilnis@gmail.com>",
   "license": "MIT"
