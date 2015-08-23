@@ -10,7 +10,7 @@ var mgnUtil = require('lol-build-manager-util');
 ### API
 
 
-### Testing
+### Tests
 ```bash
 npm run test
 ```
