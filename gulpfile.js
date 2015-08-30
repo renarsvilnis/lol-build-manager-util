@@ -9,11 +9,11 @@ gulp.task('build', function() {
     entries: './lib/index.js',
     debug: false,
     // builtins     : false,
-    insertGlobals: false,
-    cache        : {},
-    packageCache : {},
-    node: true,
-    fullPaths    : false
+    // insertGlobals: false,
+    // cache        : {},
+    // packageCache : {},
+    node: false,
+    // fullPaths    : false
   })
     .transform(babelify)
     .bundle()

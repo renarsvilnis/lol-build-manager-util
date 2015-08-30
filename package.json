@@ -2,7 +2,7 @@
   "name": "lol-build-manager-util",
   "version": "0.0.1",
   "description": "Node module that contains utility functions for all League of Legends build manager programs across the board for isomorphic JavaScript.",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
     "build": "./node_modules/gulp/bin/gulp.js build"
