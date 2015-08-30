@@ -2,9 +2,10 @@
   "name": "lol-build-manager-util",
   "version": "0.0.1",
   "description": "Node module that contains utility functions for all League of Legends build manager programs across the board for isomorphic JavaScript.",
-  "main": "lib/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "./node_modules/babel/bin/babel.js ./lib/index.js -o ./build/index.js --source-maps inline"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,7 @@
     "normalize-url": "^1.3.0",
     "url-pattern": "^0.10.0"
   },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
+  "devDependencies": {
+    "babel": "^5.8.23"
   }
 }
