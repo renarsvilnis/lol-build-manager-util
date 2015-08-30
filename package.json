@@ -21,10 +21,9 @@
     "lol-build-manager-config": "git+https://github.com/renarsvilnis/lol-build-manager-config.git",
     "url-pattern": "^0.10.0"
   },
-  "devDependencies": {
-    "babelify": "^6.2.0",
-    "browserify": "^11.0.1",
-    "gulp": "^3.9.0",
-    "vinyl-source-stream": "^1.1.0"
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }
