@@ -4,9 +4,7 @@
   "description": "Node module that contains utility functions for all League of Legends build manager programs across the board for isomorphic JavaScript.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
-    "build": "./node_modules/gulp/bin/gulp.js build",
-    "buildd": "./node_modules/browserify/bin/cmd.js ./lib/index.js --no-bundle-external=true -t babelify -o ./build/index.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
