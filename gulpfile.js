@@ -12,6 +12,7 @@ gulp.task('build', function() {
     insertGlobals: false,
     cache        : {},
     packageCache : {},
+    node: true,
     fullPaths    : false
   })
     .transform(babelify)
