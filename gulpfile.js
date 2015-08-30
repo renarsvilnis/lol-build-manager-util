@@ -12,7 +12,7 @@ gulp.task('build', function() {
     .transform(babelify)
     .bundle()
     .on('error', function(err) {
-      console.log('Error:', err);
+      console.log('Error:', err.message);
     })
     .pipe(source('index.js'))
     .pipe(gulp.dest('./build'));

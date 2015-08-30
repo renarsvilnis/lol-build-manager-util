@@ -15,9 +15,7 @@ var _urlPattern = require('url-pattern');
 
 var _urlPattern2 = _interopRequireDefault(_urlPattern);
 
-var _require = require('lol-build-manager-config');
-
-var supportedSites = _require.supportedSites;
+var _lolBuildManagerConfig = require('lol-build-manager-config');
 
 var util = {};
 
@@ -64,7 +62,7 @@ util.getScrapeModule = function (siteUrl) {
   if (!hostname || !pathname) return null;
 
   // supported scrape websites
-  var sites = supportedSites;
+  var sites = _lolBuildManagerConfig.supportedSites;
 
   for (var i = 0, l = sites.length; i < l; i++) {
     var site = sites[i];
@@ -89,12 +87,12 @@ util.getScrapeModule = function (siteUrl) {
  * @param  {string} siteUrl
  * @return {Boolean}
  */
-util.isWebsiteSupported = function (siteUrl) {
+util.isSiteSupported = function (siteUrl) {
   return !!this.getScrapeModule(siteUrl);
 };
 
 /**
- * Function for encoding data for beetween extension and native apps
+ * Function for encoding data for beetween extension and native app
  * communications
  * @param  {Object} data
  * @return {string}
@@ -104,13 +102,22 @@ util.encodeUrlData = function (data) {
 };
 
 /**
- * Function for decoding data for beetween extension and native apps
+ * Function for decoding data for beetween extension and native app
  * communications
  * @param  {string} data
  * @return {Object}
  */
 util.decodeUrlData = function (data) {
   return JSON.parse(decodeURIComponent(data));
+};
+
+/**
+ * Create url for communication beetween extension and native app
+ * @param  {Object} data
+ * @return {string}
+ */
+util.createAppProtocolUrl = function (data) {
+  return _lolBuildManagerConfig.urlProtocol + '://' + this.encodeUrlData(data);
 };
 
 exports['default'] = util;
