@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "lol-build-manager-config": "git+https://github.com/renarsvilnis/lol-build-manager-config.git",
-    "url-pattern": "^0.10.0",
+    "url-pattern": "^0.10.0"
   },
   "devDependencies": {
     "babelify": "^6.2.0",
