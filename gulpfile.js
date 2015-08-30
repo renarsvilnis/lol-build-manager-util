@@ -7,7 +7,12 @@ var gulp       = require('gulp'),
 gulp.task('build', function() {
   return browserify({
     entries: './lib/index.js',
-    debug: false
+    debug: false,
+    // builtins     : false,
+    insertGlobals: false,
+    cache        : {},
+    packageCache : {},
+    fullPaths    : false
   })
     .transform(babelify)
     .bundle()
