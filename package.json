@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "build": "./node_modules/gulp/bin/gulp.js build"
+    "build": "./node_modules/gulp/bin/gulp.js build",
+    "buildd": "./node_modules/browserify/bin/cmd.js ./lib/index.js --no-bundle-external=true -t babelify -o ./build/index.js"
   },
   "repository": {
     "type": "git",
