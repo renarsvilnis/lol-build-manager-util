@@ -16,7 +16,7 @@ import {isSubtringInString} from 'lol-build-manager-util';
 ### API
 `isSubtringInString`, `isSubstringsInString`, `getScrapeModule`, `isSiteSupported`, `encodeUrlData`, `decodeUrlData`
 
-### Tests
+### Testing
 ```bash
 npm run test
 ```
