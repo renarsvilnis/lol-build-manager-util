@@ -26,8 +26,8 @@ npm run test
 # Converts from es6 to es5
 # Use it before commiting
 npm run build
-``
+```
 
 ### TODO
 - [ ] Tests
-- [ ] API documentation
+- [ ] Auto generate API documentation
