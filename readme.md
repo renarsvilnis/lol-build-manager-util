@@ -3,17 +3,30 @@ Node module that contains utility functions for all [League of Legends build man
 
 ### Usage
 ```javascript
-// Simply require the the module and call API functions
-var mgnUtil = require('lol-build-manager-util');
+// es5
+var util = require('lol-build-manager-util');
+
+// es6
+import util from 'lol-build-manager-util';
+
+// es6 with direct property access
+import {isSubtringInString} from 'lol-build-manager-util';
 ```
 
 ### API
-
+`isSubtringInString`, `isSubstringsInString`, `getScrapeModule`, `isSiteSupported`, `encodeUrlData`, `decodeUrlData`
 
 ### Tests
 ```bash
 npm run test
 ```
+
+### Publishing
+```bash
+# Converts from es6 to es5
+# Use it before commiting
+npm run build
+``
 
 ### TODO
 - [ ] Tests
