@@ -6,9 +6,9 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _url2 = require('url');
+var _url = require('url');
 
-var _url3 = _interopRequireDefault(_url2);
+var _url2 = _interopRequireDefault(_url);
 
 var _urlPattern = require('url-pattern');
 
@@ -60,7 +60,7 @@ util.getScrapeModule = function (siteUrl) {
 
   siteUrl = (0, _normalizeUrl2['default'])(siteUrl);
 
-  var urlParts = _url3['default'].parse(siteUrl);
+  var urlParts = _url2['default'].parse(siteUrl);
 
   var hostname = urlParts.hostname,
       pathname = urlParts.pathname;
@@ -132,7 +132,7 @@ util.decodeUrlData = function (stringifiedData, callback) {
 };
 
 /**
- * Create url for communication beetween extension and native app
+ * Create url for communication beetween browser extension and native app
  * @param  {Object} data
  * @param  {Function}
  * @return {Error}
@@ -144,10 +144,28 @@ util.createAppProtocolUrl = function (data, callback) {
     if (err) {
       callback(err);
     } else {
-      var _url = _lolBuildManagerConfig.urlProtocol + '://' + stringifiedData;
-      callback(_url);
+      var protocolUrl = _lolBuildManagerConfig.urlProtocol + '://' + stringifiedData;
+      callback(protocolUrl);
     }
   });
+};
+
+/**
+ * Parse a url for communication beetween browser extension and native app
+ * @param  {string} Incoming url with stringified data
+ * @param  {Function}
+ * @return {Error}
+ * @return {Object} Data recieved
+ */
+util.parseAppProtocolUrl = function (protocolUrl, callback) {
+
+  // clean up the url
+  protocolUrl = (0, _normalizeUrl2['default'])(protocolUrl);
+
+  // parse the url to get the pathname which will be a stringified json object
+  var urlParts = _url2['default'].parse(protocolUrl);
+
+  util.decodeUrlData(urlParts.pathname, callback);
 };
 
 exports['default'] = util;
