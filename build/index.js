@@ -100,21 +100,31 @@ util.isSiteSupported = function (siteUrl) {
 /**
  * Function for encoding data for beetween extension and native app
  * communications
- * @param  {Object} data
- * @return {string}
+ * @param  {Object}
+ * @return {string} String represnting a json object
  */
-util.encodeUrlData = function (data) {
-  return encodeURIComponent(JSON.stringify(data));
+util.encodeUrlData = function (jsonData, callback) {
+  try {
+    var stringifiedData = encodeURIComponent(JSON.stringify(jsonData));
+    callback(null, stringifiedData);
+  } catch (err) {
+    callback(err);
+  }
 };
 
 /**
  * Function for decoding data for beetween extension and native app
  * communications
- * @param  {string} data
+ * @param  {string} String representing a json object
  * @return {Object}
  */
-util.decodeUrlData = function (data) {
-  return JSON.parse(decodeURIComponent(data));
+util.decodeUrlData = function (stringifiedData, callback) {
+  try {
+    var parsedData = JSON.parse(decodeURIComponent(data));
+    callback(null, parsedData);
+  } catch (err) {
+    callback(err);
+  }
 };
 
 /**
