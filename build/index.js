@@ -6,9 +6,9 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _url = require('url');
+var _url2 = require('url');
 
-var _url2 = _interopRequireDefault(_url);
+var _url3 = _interopRequireDefault(_url2);
 
 var _urlPattern = require('url-pattern');
 
@@ -60,7 +60,7 @@ util.getScrapeModule = function (siteUrl) {
 
   siteUrl = (0, _normalizeUrl2['default'])(siteUrl);
 
-  var urlParts = _url2['default'].parse(siteUrl);
+  var urlParts = _url3['default'].parse(siteUrl);
 
   var hostname = urlParts.hostname,
       pathname = urlParts.pathname;
@@ -101,6 +101,8 @@ util.isSiteSupported = function (siteUrl) {
  * Function for encoding data for beetween extension and native app
  * communications
  * @param  {Object}
+ * @param  {Function}
+ * @return {Error}
  * @return {string} String represnting a json object
  */
 util.encodeUrlData = function (jsonData, callback) {
@@ -116,6 +118,8 @@ util.encodeUrlData = function (jsonData, callback) {
  * Function for decoding data for beetween extension and native app
  * communications
  * @param  {string} String representing a json object
+ * @param  {Function}
+ * @return {Error}
  * @return {Object}
  */
 util.decodeUrlData = function (stringifiedData, callback) {
@@ -130,10 +134,20 @@ util.decodeUrlData = function (stringifiedData, callback) {
 /**
  * Create url for communication beetween extension and native app
  * @param  {Object} data
+ * @param  {Function}
+ * @return {Error}
  * @return {string}
  */
-util.createAppProtocolUrl = function (data) {
-  return _lolBuildManagerConfig.urlProtocol + '://' + util.encodeUrlData(data);
+util.createAppProtocolUrl = function (data, callback) {
+  util.encodeUrlData(data, function (err, stringifiedData) {
+
+    if (err) {
+      callback(err);
+    } else {
+      var _url = _lolBuildManagerConfig.urlProtocol + '://' + stringifiedData;
+      callback(_url);
+    }
+  });
 };
 
 exports['default'] = util;
