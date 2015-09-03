@@ -145,7 +145,7 @@ util.createAppProtocolUrl = function (data, callback) {
       callback(err);
     } else {
       var protocolUrl = _lolBuildManagerConfig.urlProtocol + '://' + stringifiedData;
-      callback(protocolUrl);
+      callback(null, protocolUrl);
     }
   });
 };
